@@ -1,29 +1,26 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.SceneTemplate;
+using System.Diagnostics;
 
 public class LevelGrid
 {
     private Vector2Int foodGridPosition, powerUpGridPosition;
     private GameObject foodGameObject, powerUpGameObject;
 
-    bool hasShield;
     
+
+
+
+
     private int width;
     private int height;
 
     private Snake snake;
 
-    void Start()
-    {
-        
-    }
-    IEnumerator PU()
-    {
-        yield return new WaitForSeconds(5);
+    
+   
 
-        SpawnPowerUp();
-    }
     public LevelGrid(int w, int h)
     {
         width = w;
@@ -54,20 +51,25 @@ public class LevelGrid
 
     public bool TrySnakeEatPowerUp(Vector2Int snakeGridPosition)
     {
+      
         if (snakeGridPosition == powerUpGridPosition)
         {
             Object.Destroy(powerUpGameObject);
 
+            SpawnPowerUp();
             
+         
             return true;
         }
+
         else
         {
             return false;
         }
     }
 
-    
+   
+
     private void SpawnFood()
     {
         // while (condicion){

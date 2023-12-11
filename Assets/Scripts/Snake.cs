@@ -17,13 +17,16 @@ public class Snake : MonoBehaviour
         Dead
     }
 
+   
     void Start()
     {
+
         //StartCoroutine(DesactivarMuerte(5));
+       
         
     }
 
-     
+   
     private class SnakeBodyPart
     {
         private SnakeMovePosition snakeMovePosition; // Posición 2D de la SnakeBodyPart
@@ -31,8 +34,7 @@ public class Snake : MonoBehaviour
 
         public SnakeBodyPart(int bodyIndex)
         {
-            GameObject snakeBodyPartGameObject = new GameObject("Snake Body",
-                typeof(SpriteRenderer));
+            GameObject snakeBodyPartGameObject = new GameObject("Snake Body",typeof(SpriteRenderer));
             SpriteRenderer snakeBodyPartSpriteRenderer = snakeBodyPartGameObject.GetComponent<SpriteRenderer>();
             snakeBodyPartSpriteRenderer.sprite = 
                 GameAssets.Instance.snakeBodySprite;
@@ -263,10 +265,9 @@ public class Snake : MonoBehaviour
             bool snakeAtePowerUp = levelGrid.TrySnakeEatPowerUp(gridPosition);
             if (snakeAtePowerUp)
             {
-                funcionActiva=true;
+                funcionActiva = true;
                 Debug.Log("Inmortal");
                 Invoke("DisableBool", 5);
-
             }
 
             if (snakeMovePositionsList.Count > snakeBodySize)
@@ -302,10 +303,12 @@ public class Snake : MonoBehaviour
             //Debug.Log("Se acabó powerUp");
     }*/
     
+    
     void DisableBool()
     {
         funcionActiva = false;
         Debug.Log("Se acabó el chollo pollo");
+        
     }
     private void GameOver()
     {
