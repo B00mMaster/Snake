@@ -267,6 +267,7 @@ public class Snake : MonoBehaviour
             {
                 funcionActiva = true;
                 Debug.Log("Inmortal");
+                
                 Invoke("DisableBool", 5);
             }
 

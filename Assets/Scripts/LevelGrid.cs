@@ -8,9 +8,9 @@ public class LevelGrid
     private Vector2Int foodGridPosition, powerUpGridPosition;
     private GameObject foodGameObject, powerUpGameObject;
 
-    
 
-
+    private int manzanas;
+    private bool shield=true;
 
 
     private int width;
@@ -18,8 +18,7 @@ public class LevelGrid
 
     private Snake snake;
 
-    
-   
+  
 
     public LevelGrid(int w, int h)
     {
@@ -30,8 +29,8 @@ public class LevelGrid
     public void Setup(Snake snake)
     {
         this.snake = snake;
+        
         SpawnFood();
-        SpawnPowerUp();
     }
 
     public bool TrySnakeEatFood(Vector2Int snakeGridPosition)
@@ -41,14 +40,23 @@ public class LevelGrid
             Object.Destroy(foodGameObject);
             SpawnFood();
             Score.AddScore(Score.POINTS);
+            manzanas++;
+            
+            if (manzanas >= 5&& shield==true) 
+            { SpawnPowerUp();
+
+                manzanas=0;
+                shield =false;
+            }
             return true;
+
         }
         else
         {
             return false;
         }
     }
-
+    
     public bool TrySnakeEatPowerUp(Vector2Int snakeGridPosition)
     {
       
@@ -56,9 +64,9 @@ public class LevelGrid
         {
             Object.Destroy(powerUpGameObject);
 
-            SpawnPowerUp();
-            
-         
+            shield=true;
+            manzanas = 0;
+           
             return true;
         }
 
