@@ -336,7 +336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &391973052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -370,9 +370,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartButton: {fileID: 2154382275036110559}
-  messsageText: {fileID: 0}
-  scoreText: {fileID: 0}
-  highScoreText: {fileID: 0}
+  messsageText: {fileID: 1647917416}
+  scoreText: {fileID: 1874398840}
+  highScoreText: {fileID: 2026823621}
 --- !u!1 &433374315
 GameObject:
   m_ObjectHideFlags: 0

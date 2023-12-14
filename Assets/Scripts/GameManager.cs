@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     public void SnakeDied()
     {
         GameOverUI.Instance.Show(Score.TrySetNewHighScore());
+
     }
 
     public void PauseGame()
